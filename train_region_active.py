@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     parser.add_argument('-n', '--name', choices=['s3dis', 'semantic_kitti', 'scannet'], default='s3dis',
                         help='training dataset (default: s3dis)')
-    parser.add_argument('-d', '--data_dir', default='/tmp2/tsunghan/S3DIS_processed/')
+    parser.add_argument('-d', '--data_dir', default='/home/data/public_data/small_S3DIS_processed')
     parser.add_argument('-p', '--model_save_dir', default='./test')
     parser.add_argument('-m', '--model', choices=['minkunet', 'spvcnn'], default='spvcnn',
                         help='training model (default: spvcnn)')
@@ -120,7 +120,7 @@ if __name__ == '__main__':
     # Active Learning setting
     parser.add_argument('--max_iterations', type=int, default=10,
                         help='Number of active learning iterations (default: 10)')
-    parser.add_argument('--active_method', type=str, required=True,
+    parser.add_argument('--active_method', type=str, default='softmax_entropy',
                         choices=['random', 'softmax_confidence', 'softmax_margin', 'softmax_entropy',
                                  'mc_dropout', 'ReDAL'],
                         help='Active Learning Methods')
