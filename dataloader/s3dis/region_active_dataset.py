@@ -51,17 +51,19 @@ class RegionActiveStanford3DDataset:
         label_num = 0
         for key in self.label_dataset.supvox:
             fn = key.replace('coords', 'supervoxel')
-            supvox = np.load(fn)
-            preserving_labels = self.label_dataset.supvox[key]
-            mask = np.isin(supvox, preserving_labels)
-            label_num += mask.sum()
+            if os.path.exists(fn):
+                supvox = np.load(fn)
+                preserving_labels = self.label_dataset.supvox[key]
+                mask = np.isin(supvox, preserving_labels)
+                label_num += mask.sum()
         pool_num = 0
         for key in self.pool_dataset.supvox:
             fn = key.replace('coords', 'supervoxel')
-            supvox = np.load(fn)
-            preserving_labels = self.pool_dataset.supvox[key] + [0]
-            mask = np.isin(supvox, preserving_labels)
-            pool_num += mask.sum()
+            if os.path.exists(fn):
+                supvox = np.load(fn)
+                preserving_labels = self.pool_dataset.supvox[key] + [0]
+                mask = np.isin(supvox, preserving_labels)
+                pool_num += mask.sum()
         self.total = label_num + pool_num
         return label_num / (label_num + pool_num)
 

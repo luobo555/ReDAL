@@ -1,0 +1,3 @@
+20240420 16:16:43 INFO: -------------------- New Experiment --------------------
+20240420 16:16:43 INFO: /home/data/models/zch/ReDAL/train_region_active.py
+20240420 16:16:43 INFO: Namespace(name='s3dis', data_dir='/home/data/public_data/small_S3DIS_processed', model_save_dir='./test', model='spvcnn', num_classes=13, ignore_idx=-100, training_epoch=200, finetune_epoch=50, train_batch_size=4, val_batch_size=10, distributed_training=False, ddp_port=7122, max_iterations=10, active_method='softmax_entropy', active_percent=2.0, ReDAL_config_path=None)
